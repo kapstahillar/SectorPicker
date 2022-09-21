@@ -5,7 +5,6 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.validation.constraints.AssertTrue;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
@@ -22,7 +21,6 @@ public class UpdateOrCreateWorkerAndAttachSectorsRequest {
     private List<Long> sectors = new ArrayList<>();
 
     @NotEmpty(message = "Name is mandatory!")
-    @Min(value = 1, message = "Cannot be empty!")
     private String name = "";
 
     @NotNull(message = "Terms and conditions are mandatory!")

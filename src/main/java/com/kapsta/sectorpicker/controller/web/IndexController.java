@@ -22,7 +22,6 @@ import java.util.UUID;
 @Controller
 @Validated
 public class IndexController {
-
     @Autowired
     private WorkerAssignmentService workerAssignmentService;
 
