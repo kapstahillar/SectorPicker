@@ -1,4 +1,4 @@
-package com.kapsta.sectorpickerback.config;
+package com.kapsta.sectorpicker.config;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

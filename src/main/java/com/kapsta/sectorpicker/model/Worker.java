@@ -1,4 +1,4 @@
-package com.kapsta.sectorpickerback.model;
+package com.kapsta.sectorpicker.model;
 
 import lombok.Getter;
 import lombok.Setter;

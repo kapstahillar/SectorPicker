@@ -1,7 +1,7 @@
-package com.kapsta.sectorpickerback.repository;
+package com.kapsta.sectorpicker.repository;
 
 
-import com.kapsta.sectorpickerback.model.Worker;
+import com.kapsta.sectorpicker.model.Worker;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

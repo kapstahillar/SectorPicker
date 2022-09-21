@@ -1,11 +1,11 @@
-package com.kapsta.sectorpickerback.service;
+package com.kapsta.sectorpicker.service;
 
-import com.kapsta.sectorpickerback.data.exception.WorkerNotFoundException;
-import com.kapsta.sectorpickerback.data.request.UpdateOrCreateWorkerAndAttachSectorsRequest;
-import com.kapsta.sectorpickerback.model.Sector;
-import com.kapsta.sectorpickerback.model.Worker;
-import com.kapsta.sectorpickerback.repository.SectorRepository;
-import com.kapsta.sectorpickerback.repository.WorkerRepository;
+import com.kapsta.sectorpicker.data.exception.WorkerNotFoundException;
+import com.kapsta.sectorpicker.data.request.UpdateOrCreateWorkerAndAttachSectorsRequest;
+import com.kapsta.sectorpicker.model.Sector;
+import com.kapsta.sectorpicker.model.Worker;
+import com.kapsta.sectorpicker.repository.SectorRepository;
+import com.kapsta.sectorpicker.repository.WorkerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

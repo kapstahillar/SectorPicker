@@ -1,7 +1,7 @@
-package com.kapsta.sectorpickerback.repository;
+package com.kapsta.sectorpicker.repository;
 
 
-import com.kapsta.sectorpickerback.model.Sector;
+import com.kapsta.sectorpicker.model.Sector;
 import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;

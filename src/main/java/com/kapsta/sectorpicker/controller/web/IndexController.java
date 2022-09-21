@@ -1,10 +1,10 @@
-package com.kapsta.sectorpickerback.controller.web;
+package com.kapsta.sectorpicker.controller.web;
 
 
-import com.kapsta.sectorpickerback.data.request.UpdateOrCreateWorkerAndAttachSectorsRequest;
-import com.kapsta.sectorpickerback.model.Sector;
-import com.kapsta.sectorpickerback.model.Worker;
-import com.kapsta.sectorpickerback.service.IndexService;
+import com.kapsta.sectorpicker.data.request.UpdateOrCreateWorkerAndAttachSectorsRequest;
+import com.kapsta.sectorpicker.model.Sector;
+import com.kapsta.sectorpicker.model.Worker;
+import com.kapsta.sectorpicker.service.IndexService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

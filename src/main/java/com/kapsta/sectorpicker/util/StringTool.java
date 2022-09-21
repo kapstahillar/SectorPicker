@@ -1,10 +1,11 @@
-package com.kapsta.sectorpickerback.util;
+package com.kapsta.sectorpicker.util;
 
 import org.springframework.web.util.HtmlUtils;
 
 public class StringTool {
 
     private StringTool() {}
+
     public static String addNbspToString(String string, int occurrences) {
         StringBuilder stringBuilder = new StringBuilder(string);
         for (int i = 0; i < occurrences; i++) {

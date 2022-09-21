@@ -1,4 +1,4 @@
-package com.kapsta.sectorpickerback.config;
+package com.kapsta.sectorpicker.config;
 
 import org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor;
 import org.springframework.context.annotation.Configuration;

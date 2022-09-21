@@ -1,6 +1,6 @@
-package com.kapsta.sectorpickerback.model;
+package com.kapsta.sectorpicker.model;
 
-import com.kapsta.sectorpickerback.util.StringTool;
+import com.kapsta.sectorpicker.util.StringTool;
 import lombok.Getter;
 import lombok.Setter;
 

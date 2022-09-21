@@ -1,4 +1,4 @@
-package com.kapsta.sectorpickerback.data.exception;
+package com.kapsta.sectorpicker.data.exception;
 
 public class ApplicationException extends RuntimeException {
     public ApplicationException(String message) {

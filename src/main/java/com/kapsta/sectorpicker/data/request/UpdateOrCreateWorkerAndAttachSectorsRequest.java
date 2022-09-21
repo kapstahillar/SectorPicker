@@ -1,4 +1,4 @@
-package com.kapsta.sectorpickerback.data.request;
+package com.kapsta.sectorpicker.data.request;
 
 import lombok.Data;
 import lombok.Getter;
