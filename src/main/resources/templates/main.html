@@ -1,0 +1,57 @@
+<!doctype html>
+
+<html lang="et" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <meta content="text/html;charset=UTF-8" http-equiv="Content-type">
+    <meta charset="UTF-8">
+
+    <title>Helmese proovitöö</title>
+    <meta content="A simple section picker for worker." name="description">
+    <meta content="HillarKapsta" name="author">
+
+    <meta content="A simple section picker for worker" property="og:title">
+    <meta content="website" property="og:type">
+    <meta content="A simple section picker for worker" property="og:description">
+
+    <link href="/favicon.ico" rel="icon">
+    <link href="/favicon.svg" rel="icon" type="image/svg+xml">
+    <link href="/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <link href="css/styles.css?v=1.0" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <form action="/" method="post" th:object=${workerForm}>
+        <div class="section-picker-components">
+            <div class="section-picker-components__errors" th:if="${errors}">
+                <p th:each="error: ${errors}" th:text="${error}"></p>
+            </div>
+            <p class="section-picker-components__success" th:if="${success}" th:text="${success}">
+            <p/>
+            <h3> Please enter your name and pick the Sectors you are currently involved in. </h3>
+            <input name="workerId" th:value="${worker?.id}" type="hidden"/>
+            <p class="section-picker-components__input-container">
+                Name:
+                <input name="name" placeholder="Enter your name" th:value="${worker?.name}"
+                       type="text"/>
+            </p>
+            <p class="section-picker-components__input-container">
+                Sectors:
+                <select multiple name="sectors[]" size="5">
+                    <option th:each="sector: ${sectors}"
+                            th:selected="${selectedSectorIds != null and #arrays.contains(selectedSectorIds, sector.id)}"
+                            th:text='${sector.name}'
+                            th:value="${sector.id}"></option>
+                </select>
+            </p>
+            <p class="section-picker-components__input-container">
+                <input name="tac" th:checked="${worker?.tac}" type="checkbox"/> Agree to terms
+            </p>
+            <input type="submit" value="Save">
+        </div>
+    </form>
+</div>
+</body>
+</html>
