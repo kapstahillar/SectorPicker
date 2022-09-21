@@ -2,9 +2,9 @@ package com.kapsta.sectorpicker.util;
 
 import org.springframework.web.util.HtmlUtils;
 
-public class StringTool {
+public class StringUtil {
 
-    private StringTool() {}
+    private StringUtil() {}
 
     public static String addNbspToString(String string, int occurrences) {
         StringBuilder stringBuilder = new StringBuilder(string);

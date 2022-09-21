@@ -1,5 +1,6 @@
 package com.kapsta.sectorpicker.service;
 
+import com.kapsta.sectorpicker.data.exception.SectorNotFoundException;
 import com.kapsta.sectorpicker.data.exception.WorkerNotFoundException;
 import com.kapsta.sectorpicker.data.request.UpdateOrCreateWorkerAndAttachSectorsRequest;
 import com.kapsta.sectorpicker.model.Sector;
@@ -13,7 +14,7 @@ import java.security.InvalidParameterException;
 import java.util.*;
 
 @Component("sectorService")
-public class IndexService {
+public class WorkerAssignmentService {
 
     @Autowired
     private SectorRepository sectorRepository;
@@ -51,5 +52,14 @@ public class IndexService {
         }
         Optional<Worker> worker = workerRepository.findById(id);
         return worker.orElseThrow(() -> new WorkerNotFoundException("Worker not found"));
+    }
+
+    public Sector getSectorById(Long id) {
+        return sectorRepository.findById(id).orElseThrow(
+                () -> new SectorNotFoundException("Sector was not found"));
+    }
+
+    public List<Sector> getSectors() {
+        return sectorRepository.findAll();
     }
 }

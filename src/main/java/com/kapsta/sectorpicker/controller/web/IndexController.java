@@ -4,7 +4,7 @@ package com.kapsta.sectorpicker.controller.web;
 import com.kapsta.sectorpicker.data.request.UpdateOrCreateWorkerAndAttachSectorsRequest;
 import com.kapsta.sectorpicker.model.Sector;
 import com.kapsta.sectorpicker.model.Worker;
-import com.kapsta.sectorpicker.service.IndexService;
+import com.kapsta.sectorpicker.service.WorkerAssignmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,14 +24,14 @@ import java.util.UUID;
 public class IndexController {
 
     @Autowired
-    private IndexService indexService;
+    private WorkerAssignmentService workerAssignmentService;
 
     @GetMapping("/")
     public String index(Model model, UpdateOrCreateWorkerAndAttachSectorsRequest workerForm, HttpServletRequest request) {
         model.addAttribute("workerForm", workerForm);
-        model.addAttribute("sectors", indexService.getSectorsInHierarchicalList());
+        model.addAttribute("sectors", workerAssignmentService.getSectorsInHierarchicalList());
         try {
-            Worker worker = indexService
+            Worker worker = workerAssignmentService
                     .getWorker(UUID.fromString(request.getSession().getAttribute("workerId").toString()));
             model.addAttribute("worker", worker);
             model.addAttribute("selectedSectorIds",
@@ -49,14 +49,14 @@ public class IndexController {
             HttpServletRequest request,
             Model model
     ) {
-        Worker worker = indexService.handleUpdateOrCreateRequest(dto);
+        Worker worker = workerAssignmentService.handleUpdateOrCreateRequest(dto);
         request.getSession().setAttribute("workerId", worker.getId());
         model.addAttribute("errors", null);
         model.addAttribute("success", "Form request was successful");
         model.addAttribute("worker", worker);
         model.addAttribute("selectedSectorIds",
                 worker.getUserSectors().stream().map(Sector::getId).toList());
-        model.addAttribute("sectors", indexService.getSectorsInHierarchicalList());
+        model.addAttribute("sectors", workerAssignmentService.getSectorsInHierarchicalList());
         return "main";
     }
 }

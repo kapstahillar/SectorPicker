@@ -1,6 +1,6 @@
 package com.kapsta.sectorpicker.model;
 
-import com.kapsta.sectorpicker.util.StringTool;
+import com.kapsta.sectorpicker.util.StringUtil;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -32,7 +32,7 @@ public class Sector implements Serializable {
     private List<Worker> sectorUsers;
 
     public String getName() {
-        return StringTool.replaceKnownCharactersInString(name);
+        return StringUtil.replaceKnownCharactersInString(name);
     }
 
     public List<Sector> getAllChildrenWithIndents(int childrenLevel) {
@@ -41,7 +41,7 @@ public class Sector implements Serializable {
                 .sorted(Comparator.comparing(Sector::getName))
                 .toList();
         sortedChildren.forEach(child -> {
-            child.setName(StringTool.addNbspToString(child.getName(), childrenLevel));
+            child.setName(StringUtil.addNbspToString(child.getName(), childrenLevel));
             allChildren.add(child);
             allChildren.addAll(child.getAllChildrenWithIndents(childrenLevel + 1));
         });
