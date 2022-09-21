@@ -8,6 +8,6 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @Configuration
 @ComponentScan({"com.kapsta.sectorpicker"})
 @EntityScan(basePackages = "com.kapsta.sectorpicker.model")
-@EnableJpaRepositories("com.kapsta.sectorpicker.repo")
+@EnableJpaRepositories("com.kapsta.sectorpicker.repository")
 public class DataConfig {
 }
