@@ -1,33 +1,23 @@
-# Read Me First
 
-The following was discovered as part of building this project:
+# Spring sector picker
 
-* The original package name 'com.kapsta.sectorpicker-back' is invalid and this project uses 'com.kapsta.sectorpicker'
-  instead.
+## Introduction
+This is a simple project using Java Spring Boot project using Gradle.
 
-# Getting Started
+## Requirements
+1.  JDK 17
+2. Command line
+3. (Optional) Phyton
 
-### Reference Documentation
 
-For further reference, please consider the following sections:
+## Quick start
 
-* [Official Gradle documentation](https://docs.gradle.org)
-* [Spring Boot Gradle Plugin Reference Guide](https://docs.spring.io/spring-boot/docs/2.7.3/gradle-plugin/reference/html/)
-* [Create an OCI image](https://docs.spring.io/spring-boot/docs/2.7.3/gradle-plugin/reference/html/#build-image)
-* [Spring Boot DevTools](https://docs.spring.io/spring-boot/docs/2.7.3/reference/htmlsingle/#using.devtools)
-* [Spring Web](https://docs.spring.io/spring-boot/docs/2.7.3/reference/htmlsingle/#web)
+0. (Optional) Run sector-import-tool.py to generate sectors import sql from index file to "src/main/resources/data.sql" file
+```
+ py sector-import-tool.py
+```
 
-### Guides
-
-The following guides illustrate how to use some features concretely:
-
-* [Building a RESTful Web Service](https://spring.io/guides/gs/rest-service/)
-* [Serving Web Content with Spring MVC](https://spring.io/guides/gs/serving-web-content/)
-* [Building REST services with Spring](https://spring.io/guides/tutorials/rest/)
-
-### Additional Links
-
-These additional references should also help you:
-
-* [Gradle Build Scans – insights for your project's build](https://scans.gradle.com#gradle)
-
+1. Run project 
+```
+./gradlew bootRun
+```
