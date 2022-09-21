@@ -7,10 +7,10 @@ import org.springframework.context.annotation.Import;
 
 @SpringBootApplication
 @Import(WebExceptionHandling.class)
-public class SectorpickerBackApplication {
+public class SectorPickerApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(SectorpickerBackApplication.class, args);
+        SpringApplication.run(SectorPickerApplication.class, args);
     }
 
 }
