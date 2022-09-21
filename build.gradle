@@ -1,64 +1,47 @@
 plugins {
-	id 'org.springframework.boot' version '2.7.3'
-	id 'io.spring.dependency-management' version '1.0.13.RELEASE'
-	id 'java'
-	id 'war'
-	id 'org.liquibase.gradle' version '2.1.0'
+    id 'org.springframework.boot' version '2.7.3'
+    id 'io.spring.dependency-management' version '1.0.13.RELEASE'
+    id 'java'
+    id 'war'
 }
 
 group = 'com.kapsta'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '17'
+
+
+java.sourceCompatibility = '17'
 
 repositories {
-	mavenCentral()
+    mavenCentral()
 }
 
 dependencies {
-	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 
-	implementation 'org.springframework.boot:spring-boot-starter-web'
-	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
+    // Core
+    providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+    compileOnly 'org.projectlombok:lombok:1.18.24'
+    providedRuntime 'org.projectlombok:lombok:1.18.24'
+    annotationProcessor 'org.projectlombok:lombok:1.18.24'
 
-	// ORM
-	implementation 'org.springframework:spring-orm'
+    // View
+    implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'
 
-	// Hibernate
-	implementation 'org.hibernate:hibernate-core'
-	implementation 'org.hibernate:hibernate-entitymanager'
+    // Serialization
+    implementation 'org.modelmapper:modelmapper:3.1.0'
 
-	// Logging
-	// implementation 'org.springframework.logging:spring-logging-web'
+    // Database
+    implementation 'com.h2database:h2:2.1.214'
 
-	// liquibase integration
-	liquibaseRuntime 'org.liquibase:liquibase-core:4.15.0'
-	liquibaseRuntime "org.postgresql:postgresql"
-	liquibaseRuntime 'org.liquibase.ext:liquibase-hibernate5:4.15.0'
-	liquibaseRuntime sourceSets.main.output
+    // Tools
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
 
-
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-}
-
-apply plugin: "org.liquibase.gradle"
-
-
-task migrate {
-	doLast{
-		liquibase {
-			activities {
-				main {
-					url 'mysql://localhost:3306/$System.env.POSTGRES_DATABASE'
-					username $System.env.POSTGRES_USER
-					password $System.env.POSTGRES_PASSWORD
-					driver 'com.mysql.jdbc.Driver'
-					// changelog-file $System.env.LIQUIDBASE_CHANGELOG_FILE
-				}
-			}
-		}
-	}
-}
-
-tasks.named('test') {
-	useJUnitPlatform()
+    // Testing
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testCompileOnly 'org.projectlombok:lombok:1.18.24'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.24'
 }
